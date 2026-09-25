@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>MINIMARKET</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .kasir{background:#fff;max-width:400px;margin:20px auto;padding:15px;text-align:center;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+        .kasir input{width:100%;padding:8px;margin:8px 0}
+    </style>
+</head>
+<body>
+    
+<div class="header-top">
+    <div class="banner">MINI MARKET</div>
+    <marquee class="jalan-warna">SELAMAT DATANG DI MINIMARKET SOPHIES BELANJA HEMAT, HARGA BERSAHABAT</marquee>
+    <div class="banner">MINI MARKET</div>
+</div>
+
+<div class="sub-header">DAFTAR PRODUK</div>
+
+<div class="container">
+    <div class="card">
+        <img src="dilan.jpg" alt="Dilan Wafle">
+        <h3>Dilan Wafle</h3>
+        <p>Rp 2000</p>
+        <button onclick="tambah(2000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="card">
+        <img src="pocky.jpg" alt="poxy">
+        <h3>poxy</h3>
+        <p>Rp 12.000</p>
+        <button onclick="tambah(12000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="card">
+        <img src="cimory.jpg" alt="cimory squeeze">
+        <h3>cimory squeeze</h3>
+        <p>Rp 8000</p>
+        <button onclick="tambah(8000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="card">
+        <img src="maitos.jpg" alt="maitos">
+        <h3>maitos</h3>
+        <p>Rp 12.000</p>
+        <button onclick="tambah(12000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="card">
+        <img src="nescafe.jpg" alt="nescafe">
+        <h3>nescafe</h3>
+        <p>Rp 15.000</p>
+        <button onclick="tambah(15000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="card">
+        <img src="Rebo.jpg" alt="rebo">
+        <h3>rebo</h3>
+        <p>Rp 8000</p>
+        <button onclick="tambah(8000)">Tambah ke Keranjang</button>
+    </div>
+</div>
+
+<!-- TOTAL, UANG MASUK, KEMBALIAN -->
+<div class="kasir">
+    <h3>Total: <span id="total">Rp 0</span></h3>
+    Uang Masuk: <input type="number" id="bayar" placeholder="Masukkan uang" oninput="hitung()">
+    Kembalian: <b id="kembali">Rp 0</b><br><br>
+    <button onclick="reset()">Reset</button>
+</div>
+
+<div class="header-bottom">
+    <div class="banner">MINI MARKET</div>
+    <div class="banner">MARKET</div>
+    <div class="banner">MINI MARKET</div>
+</div>
+
+<script>
+let total=0;
+function tambah(harga){
+    total+=harga;
+    document.getElementById('total').innerText='Rp '+total;
+    hitung();
+}
+function hitung(){
+    let bayar = document.getElementById('bayar').value || 0;
+    let kembali = bayar - total;
+    let elKembali = document.getElementById('kembali');
+    
+    if(bayar == 0){
+        elKembali.innerText='Rp 0';
+    } else if(kembali < 0){
+        elKembali.innerText='Kurang Rp ' + Math.abs(kembali);
+    } else {
+        elKembali.innerText='Rp ' + kembali;
+    }
+}
+function reset(){
+    total=0;
+    document.getElementById('total').innerText='Rp 0';
+    document.getElementById('bayar').value='';
+    document.getElementById('kembali').innerText='Rp 0';
+}
+</script>
+
+</body>
+</html>

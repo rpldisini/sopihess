@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+.jalan-warna{
+    background: linear-gradient(90deg, #ff0080, #ff8c00, #ffeb00, #00ff88, #00c6ff, #a000ff);
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 8px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('pppp.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.55);
+    z-index:-1;
+}
+
+/* HEADER ATAS */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #ff9800;
+}
+
+.banner {
+    background-color: #e65100;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tengah {
+    flex: 1;
+    background-color: #f57c00;
+}
+
+/* JUDUL */
+.sub-header {
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* DAFTAR PRODUK */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px;
+}
+
+/* CARD PRODUK */
+.card {
+    background-color: white;
+    border: 2px solid #ff9800;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: #e65100;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.card p {
+    color: #f57c00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* TOMBOL */
+button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #e65100;
+}
+
+/* FOOTER */
+.header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #ff9800;
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-top,
+    .header-bottom {
+        flex-direction: column;
+    }
+
+    .banner {
+        width: 100%;
+    }
+
+    .tengah {
+        flex: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        width: 150px;
+        height: 150px;
+    }
+}
